@@ -4,13 +4,10 @@
 * coreTest.cpp 
 * Created by Abel Moyo on 16/11/2018.
 ****************************************************************************/
-
 #include "../core.hpp"
 #include <memory>
 #include <gtest/gtest.h>
 using ::testing::Test;
-#include <gmock/gmock.h>
-using ::testing::Eq;
 
 namespace CoreTest
 {
@@ -19,20 +16,21 @@ namespace CoreTest
         class libCoreTest : public Test {
         protected:
             std::unique_ptr<Core> coreObject = nullptr;
-            void SetUp() override{
+
+            void SetUp() override {
                 coreObject = std::make_unique<Core>();
             }
-            void TearDown() override{}
+            void TearDown() override {}
         };
 
-        TEST_F(libCoreTest, addOneAndThreeGivesFour)
+        TEST_F(libCoreTest, calculateSumOneAndThreeGivesFour)
         {
-            EXPECT_EQ(coreObject->add(1, 3), 4);
+            EXPECT_EQ(coreObject->calculateSum(1, 3), 4);
         }
 
-        TEST_F(libCoreTest, addMinusOneAndMinusThreeGivesMinusFour)
+        TEST_F(libCoreTest, caculateSumMinusOneAndMinusThreeGivesMinusFour)
         {
-            EXPECT_EQ(coreObject->add(-1, -3), -4);
+            EXPECT_EQ(coreObject->calculateSum(-1, -3), -4);
         }
     }
 }

@@ -7,7 +7,7 @@
 
 #include "core.hpp"
 
-int Core::add(int x, int y)
+int Core::calculateSum(int x, int y)
 {
     return x + y;
 }
